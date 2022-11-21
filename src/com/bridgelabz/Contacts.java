@@ -1,18 +1,20 @@
 package com.bridgelabz;
 
 public class Contacts {
-    public String firstName, lastName, address, city, state, email, phoneNumber;
-    public int zip;
 
-    public Contacts(String firstName, String lastName, String address, String city, String state, String email, String phoneNumber, int zip) {
+    public String firstName, lastName, address, city, state, email;
+    public int zip;
+    public long phoneNumber;
+
+    public Contacts(String firstName, String lastName, String address, String city, String state, String email, int zip, long phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.city = city;
         this.state = state;
         this.email = email;
-        this.phoneNumber = phoneNumber;
         this.zip = zip;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getFirstName() {
@@ -63,20 +65,20 @@ public class Contacts {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public int getZip() {
         return zip;
     }
 
     public void setZip(int zip) {
         this.zip = zip;
+    }
+
+    public long getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
@@ -88,8 +90,8 @@ public class Contacts {
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
                 ", zip=" + zip +
+                ", phoneNumber=" + phoneNumber +
                 '}';
     }
 }
