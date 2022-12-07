@@ -5,11 +5,7 @@ import java.util.Scanner;
 
 public class AddressBook {
 
-    private ArrayList<Contacts> ContactList;
-
-    public AddressBook() {
-        ContactList = new ArrayList<Contacts>();
-    }
+    private ArrayList<Contacts> ContactList = new ArrayList<Contacts>();
 
     public Contacts getContactInput() {
 
@@ -35,20 +31,22 @@ public class AddressBook {
         Contacts contact = new Contacts(firstName, lastName, address, city, state, email,zip,phoneNumber);
         return contact;
     }
-
+        //Creating a Method for AddNewCotact
     public void addContact(Contacts createPerson) {
         System.out.println("Adding a New Contacts for " + createPerson.firstName);
         ContactList.add(createPerson);
         System.out.println((createPerson));
     }
-
+    //method used to edit the contact
     public void editContact() {
         boolean isContactFound = false;
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter First Name of Contacts to Edit it");
         String cName = sc.nextLine();
+        //Contacts class Object contact & Arraylist Class object ContactList
         for (Contacts contact : ContactList) {
             if (contact.getFirstName().equals(cName)) {
+                //compare firstname to ContactList using .equals
                 isContactFound = true;
                 System.out.println("Which Details You Would Like To Edit ?");
                 System.out.println("Press - 1 for First Name \nPress - 2 for Last Name \n" + "Press - 3 for Address \nPress - 4 for City \nPress - 5 for State \nPress - 6 for Zip \n" + "Press - 7 for Phone No. \nPress - 8 for Email");
@@ -150,46 +148,6 @@ public class AddressBook {
                 System.out.println("Address: " + ContactList.get(i).address + " City: " + ContactList.get(i).city + " State: " + ContactList.get(i).state + " Zip: " + ContactList.get(i).zip);
                 System.out.println("Phone No: " + ContactList.get(i).phoneNumber);
                 System.out.println("Email: " + ContactList.get(i).email);
-            }
-        }
-    }
-
-    public static void main(String[] args) {
-
-        System.out.println("Welcome to the Address Book System");
-        int ch;
-        Scanner sc = new Scanner(System.in);
-        AddressBook AD = new AddressBook();
-
-        while (true) {
-            System.out.println("1.Adding Contacts \n2.Update Contacts \n3.Delete Contacts \n4.View Contacts\n5.Exit");
-            System.out.println("Enter a Your Choice: ");
-            ch = sc.nextInt();
-
-            switch (ch) {
-                case 1:
-                    Contacts Contact = AD.getContactInput();
-                    AD.addContact(Contact);
-                    System.out.println("Contacts Added Successfully");
-                    break;
-                case 2:
-                    AD.editContact();
-                    System.out.println("Contacts Updated Successfully");
-                    break;
-                case 3:
-                    AD.deleteContact();
-                    System.out.println("Contacts Delete Successfully");
-                    break;
-                case 4:
-                    System.out.println("Showing All Contacts Details");
-                    AD.viewContacts();
-                    break;
-                case 5:
-                    System.out.println("Thank You We are Exiting");
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Sorry You are Type Wrong Choice");
             }
         }
     }
